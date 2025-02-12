@@ -1,0 +1,44 @@
+{
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
+  },
+  "lint": {
+    "include": ["src/"],
+    "exclude": ["src/testdata/", "src/fixtures/**/*.ts"],
+    "rules": {
+      "tags": ["recommended"],
+      "include": ["ban-untagged-todo"],
+      "exclude": ["no-unused-vars"]
+    }
+  },
+  "fmt": {
+    "useTabs": true,
+    "lineWidth": 80,
+    "indentWidth": 4,
+    "semiColons": false,
+    "singleQuote": true,
+    "proseWrap": "preserve",
+    "include": ["src/"],
+    "exclude": ["src/testdata/", "src/fixtures/**/*.ts"]
+  },
+  "lock": false,
+  "nodeModulesDir": true,
+  "unstable": ["webgpu"],
+  "test": {
+    "include": ["src/"],
+    "exclude": ["src/testdata/", "src/fixtures/**/*.ts"]
+  },
+  "tasks": {
+    "start": "deno run -A --watch dev.ts",
+    "build": "deno run -A dev.ts --build",
+    "serve": "deno run -A server.ts",
+    "docker:build": "docker build -t deno-react-app .",
+    "docker:run": "docker run -p 8000:8000 deno-react-app",
+    "start:ssr": "ENABLE_SSR=true deno run -A --watch dev.ts",
+    "serve:ssr": "ENABLE_SSR=true deno run -A server.ts",
+    "docker:run:ssr": "docker run -p 8000:8000 -e ENABLE_SSR=true deno-react-app",
+    "cache": "deno cache --lock=deno.lock --lock-write dev.ts server.ts"
+  },
+  "importMap": "import_map.json"
+}
