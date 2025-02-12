@@ -68,7 +68,7 @@ app.use(async (ctx, next) => {
         loader: "tsx",
         jsxImportSource: "react",
         format: "esm",
-        target: "es2020",
+        target: "esnext",
         sourcefile: ctx.request.url.pathname,
         jsxFactory: "React.createElement",
         jsxFragment: "React.Fragment",
@@ -79,7 +79,7 @@ app.use(async (ctx, next) => {
 
       // Add React import only if it's not already in the code
       const finalCode = !fileContent.includes("import React")
-        ? `import React from "https://esm.sh/react@18.2.0";\n${result.code}`
+        ? `import React from "https://esm.sh/stable/react@19.0.0/esnext/react.mjs";\n${result.code}`
         : result.code;
 
       ctx.response.body = finalCode;

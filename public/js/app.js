@@ -1,14 +1,14 @@
-import React from "https://esm.sh/react@18.2.0";
-import * as ReactDOM from "https://esm.sh/react-dom@18.2.0/client";
+import React from "https://esm.sh/stable/react@19.0.0/esnext/react.mjs";
+import * as ReactDOM from "https://esm.sh/stable/react-dom@19.0.0/esnext/react-dom.mjs";
+import { createRoot } from "https://esm.sh/stable/react-dom@19.0.0/esnext/client.mjs";
 
 export const renderApp = async () => {
   try {
-    // Dynamically import the App component
     const { default: App } = await import("/src/App.tsx?v=" + Date.now());
     const root = document.getElementById("root");
 
     if (!root._reactRoot) {
-      root._reactRoot = ReactDOM.createRoot(root);
+      root._reactRoot = createRoot(root);
     }
 
     root._reactRoot.render(

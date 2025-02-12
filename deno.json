@@ -42,8 +42,8 @@
     "dev": "deno run --allow-net --allow-read --allow-env --allow-write --allow-run --watch src/server/dev.ts"
   },
   "imports": {
-    "react": "https://esm.sh/react@18.2.0",
-    "react-dom": "https://esm.sh/react-dom@18.2.0",
-    "react/jsx-runtime": "https://esm.sh/react@18.2.0/jsx-runtime"
+    "react": "https://esm.sh/stable/react@19.0.0/esnext/react.mjs",
+    "react-dom": "https://esm.sh/stable/react-dom@19.0.0/esnext/react-dom.mjs",
+    "react/jsx-runtime": "https://esm.sh/stable/react@19.0.0/esnext/jsx-runtime.mjs"
   }
 }
