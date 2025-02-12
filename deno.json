@@ -23,7 +23,7 @@
     "exclude": ["src/testdata/", "src/fixtures/**/*.ts"]
   },
   "lock": false,
-  "nodeModulesDir": true,
+  "nodeModulesDir": "auto",
   "unstable": ["webgpu"],
   "test": {
     "include": ["src/"],
@@ -38,7 +38,12 @@
     "start:ssr": "ENABLE_SSR=true deno run -A --watch dev.ts",
     "serve:ssr": "ENABLE_SSR=true deno run -A server.ts",
     "docker:run:ssr": "docker run -p 8000:8000 -e ENABLE_SSR=true deno-react-app",
-    "cache": "deno cache --lock=deno.lock --lock-write dev.ts server.ts"
+    "cache": "deno cache --lock=deno.lock --lock-write dev.ts server.ts",
+    "dev": "deno run --allow-net --allow-read --allow-env --allow-write --allow-run --watch src/server/dev.ts"
   },
-  "importMap": "import_map.json"
+  "imports": {
+    "react": "https://esm.sh/react@18.2.0",
+    "react-dom": "https://esm.sh/react-dom@18.2.0",
+    "react/jsx-runtime": "https://esm.sh/react@18.2.0/jsx-runtime"
+  }
 }
